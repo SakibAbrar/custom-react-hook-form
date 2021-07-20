@@ -3,7 +3,7 @@ import Form from './Form';
 const App = () => {
   return (
     <Flex
-      minH="calc(100vh - 100px)"
+      minH="calc(100vh - 80px)"
       backgroundColor="#f1f3f4"
       flexDirection="column"
       justifyContent="center"
