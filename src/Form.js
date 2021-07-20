@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from './custom-form-hook';
 import {
   Stack,
   Text,
@@ -7,21 +8,13 @@ import {
   Input,
   Button,
 } from '@chakra-ui/react';
+
 const Form = () => {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
+  const { formState, handleChange } = useForm();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ email, username });
+    console.log(formState);
   };
   return (
     <Stack
@@ -43,8 +36,9 @@ const Form = () => {
       <FormControl id="email" isRequired>
         <FormLabel color="#ffa000">Email address</FormLabel>
         <Input
-          value={email}
-          onChange={handleEmailChange}
+          name="email"
+          value={formState.email || ''}
+          onChange={handleChange}
           h="50px"
           type="email"
           bg="#f8f8f8"
@@ -56,8 +50,9 @@ const Form = () => {
       <FormControl id="email" isRequired>
         <FormLabel color="#ffa000">Username</FormLabel>
         <Input
-          value={username}
-          onChange={handleUsernameChange}
+          name="username"
+          value={formState.username || ''}
+          onChange={handleChange}
           h="50px"
           type="text"
           bg="#f8f8f8"
