@@ -38,4 +38,18 @@ const DemoForm = () => {
 export default DemoForm;
 ```
 
+## Using the custom hook form with default values
+
+You can set some defaultvalues for the registered fields.
+
+```javascript
+const { register, handleSubmit } = useForm({
+  defaultValues: {
+    email: 'example@company.com',
+    username: 'username',
+    usertype: 'admin',
+  },
+});
+```
+
 If you have any suggestions regarding this custom implementation of react-hook-form feel free to drop an email on `sakib.cghs@gmail.com`

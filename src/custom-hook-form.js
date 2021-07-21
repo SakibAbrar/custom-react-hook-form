@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
-export const useForm = () => {
+export const useForm = (param) => {
+  const { defaultValues } = param || {};
+
   // holding every form fields inside one big fat state
-  const [formState, setFormState] = useState({});
+  const [formState, setFormState] = useState({ ...defaultValues });
 
   // persists the event and makes changes to the piece of state accordingly
   const handleChange = (e) => {
@@ -13,7 +15,11 @@ export const useForm = () => {
   // this will return the onChange callback and the value which will be
   // attached inside any html input tag by object destructuring i.e. {...register('email)}
   const register = (name) => {
-    return { name: name, value: formState[name] || '', onChange: handleChange };
+    return {
+      name: name,
+      value: formState[name] || defaultValues?.[name] || '',
+      onChange: handleChange,
+    };
   };
 
   // by currying I am receviing the submit callback event from user
