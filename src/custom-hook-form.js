@@ -8,5 +8,8 @@ export const useForm = () => {
     setFormState((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
-  return { formState, handleChange };
+  const register = (name) => {
+    return { onChange: handleChange, value: formState[name] || '' };
+  };
+  return { register, formState, handleChange };
 };

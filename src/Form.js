@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from './custom-form-hook';
+import { useForm } from './custom-hook-form';
 import {
   Stack,
   Text,
@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 
 const Form = () => {
-  const { formState, handleChange } = useForm();
+  const { register, formState } = useForm();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,8 +37,7 @@ const Form = () => {
         <FormLabel color="#ffa000">Email address</FormLabel>
         <Input
           name="email"
-          value={formState.email || ''}
-          onChange={handleChange}
+          {...register('email')}
           h="50px"
           type="email"
           bg="#f8f8f8"
@@ -51,8 +50,7 @@ const Form = () => {
         <FormLabel color="#ffa000">Username</FormLabel>
         <Input
           name="username"
-          value={formState.username || ''}
-          onChange={handleChange}
+          {...register('username')}
           h="50px"
           type="text"
           bg="#f8f8f8"
