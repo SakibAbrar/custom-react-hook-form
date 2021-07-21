@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Custom React Hook Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple implementation of React Hook Form which I love using a lot.
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+Let's clone the project and run locally-
 
-### `yarn start`
+```bash
+git clone git@github.com:SakibAbrar/custom-react-hook-form.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#install dependencies
+yarn
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# start the server
+yarn start
+```
 
-### `yarn test`
+## Using the custom hook form
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+just import it from the `custom-hook-form.js` file like below. You don't need the whole project or chakra-ui for that. Just copy the `custom-hook-form.js` file on your existing project and use it after importing it. Register the input fields as below.
 
-### `yarn build`
+```javascript
+import React from 'react';
+import { useForm } from './custom-hook-form';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const DemoForm = () => {
+  const { register, handleSubmit } = useForm();
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <input {...register('firstname')} />
+      <input {...register('lastname')} />
+      <input type="submit" />
+    </form>
+  );
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default DemoForm;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any suggestions regarding this custom implementation of react-hook-form feel free to drop an email on `sakib.cghs@gmail.com`

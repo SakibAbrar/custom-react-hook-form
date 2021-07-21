@@ -1,5 +1,5 @@
 import { Flex, Stack } from '@chakra-ui/react';
-import Form from './Form';
+import Form from './ChakrUIForm';
 const App = () => {
   return (
     <Flex

@@ -10,16 +10,15 @@ import {
 } from '@chakra-ui/react';
 
 const Form = () => {
-  const { register, formState } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formState);
+  const submit = (data) => {
+    console.log(data);
   };
   return (
     <Stack
       as="form"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(submit)}
       minW="380px"
       spacing={4}
       pl={12}
@@ -36,7 +35,7 @@ const Form = () => {
       <FormControl id="email" isRequired>
         <FormLabel color="#ffa000">Email address</FormLabel>
         <Input
-          name="email"
+          // name="email"
           {...register('email')}
           h="50px"
           type="email"
